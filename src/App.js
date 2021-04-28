@@ -1,23 +1,30 @@
 import React, {useEffect} from "react";
-import { csv } from 'd3-fetch';
+import {BrowserRouter as Router, Switch, Link, Route} from "react-router-dom"
 
-const viewHeight = 500;
-const viewWidth = 500;
+import Navbar from './components/navbar';
+import Home from './pages/Home';
+import Class from './pages/Class';
+import A1 from './pages/A1';
+import A2 from './pages/A2';
 
+import 'bootstrap/dist/css/bootstrap.css';
 
 const App = () => {
 
-    useEffect(() => {
-      csv("https://raw.githubusercontent.com/erikth23/react-parcel-starter/main/generation_monthly.csv").then(function(data) {
-        console.log(data);
-      });
-    }, [])
-
-    return (
+  return (
+      <Router>
+        <Navbar />
         <div>
-          <h1>Exploratory Data Analysis Assignment #2</h1>
+          <Switch>
+            <Route path='/home' component={Home}/>
+            <Route path='/class' component={Class}/>
+            <Route path='/a1' component={A1}/>
+            <Route path='/a2' component={A2}/>
+            <Route exact path='/' component={Home}/>
+          </Switch>
         </div>
-    );
+      </Router>
+    )
 };
 
 export default App;
