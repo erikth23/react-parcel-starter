@@ -151,6 +151,11 @@ const A2 = () => {
   }}>
 		<h1>Exploratory Data Analysis(Assignment #2)</h1>
 		<p>{loading && 'Loading Data...'}</p>
+		<ul style={{'textAlign': 'left', width: '80vw'}}>
+			<li>How do seasons affect the source of our energy over time?</li>
+			<li>How do regions of the US differ in the way they generate energy?</li>
+			<li>How is energy generated according to its purpose?</li>
+		</ul>
 		<p style={{'textAlign': 'justify', width: '80vw'}}>The questions I came up with(see above) are based around the idea that different regions and different times of the year have different ways of generating energy.  This may be because of socioeconomic, political, or climate factors, but what I am looking to consider is how close is each region to developing a sustainable source of energy.  Through this Exploratory Data Analysis, I discovered surprising insights into how certain regions generate energy.
 <br/><br/>
 Since this dataset is extremely large in size, I opted to focus on a single year so the analysis did not take forever and my visualizations were not cluttered. To perform the initial analysis I first looked at the data directly to see if there were any anomalies.  After that I looked at my static visualization and began working with the data using simple svg tags.  I charted out the data over a timeline, but it did not yield much as there were a lot of points and not much could be taken out of it.  After that I tried to lay out the data using lines and found that the large majority of data was centered around the 0.  From there I decided to bin the data on the amount of energy generated using d3-array and built a bar chart that could display that.  From there, I realized there were a lot of negative values and zero values.  This was an interesting insight that I was not expecting, since we are talking about the amount of energy generated.
