@@ -100146,7 +100146,7 @@ var RegionGeneration = function RegionGeneration(_ref) {
       y: size - margin - yScale(energy_regional_sum),
       height: yScale(energy_regional_sum),
       width: "5",
-      fill: energyHighlight.includes('solar') ? "blue" : "black"
+      fill: energyHighlight.includes('solar') ? "red" : energyHighlight != '' ? 'black' : "#e6add8"
     });
   }), bins[1].map(function (energy_regional_sum, i) {
     return /*#__PURE__*/_react.default.createElement("rect", {
@@ -100154,7 +100154,7 @@ var RegionGeneration = function RegionGeneration(_ref) {
       y: size - margin - yScale(energy_regional_sum),
       height: yScale(energy_regional_sum),
       width: "5",
-      fill: energyHighlight.includes('hydro') ? "blue" : "black"
+      fill: energyHighlight.includes('hydro') ? "red" : energyHighlight != '' ? 'black' : "#72bcd4"
     });
   }), bins[2].map(function (energy_regional_sum, i) {
     return /*#__PURE__*/_react.default.createElement("rect", {
@@ -100162,7 +100162,7 @@ var RegionGeneration = function RegionGeneration(_ref) {
       y: size - margin - yScale(energy_regional_sum),
       height: yScale(energy_regional_sum),
       width: "5",
-      fill: energyHighlight.includes('nuclear') ? "blue" : "black"
+      fill: energyHighlight.includes('nuclear') ? "red" : energyHighlight != '' ? 'black' : "#e6bbad"
     });
   }), bins[3].map(function (energy_regional_sum, i) {
     return /*#__PURE__*/_react.default.createElement("rect", {
@@ -100170,7 +100170,7 @@ var RegionGeneration = function RegionGeneration(_ref) {
       y: size - margin - yScale(energy_regional_sum),
       height: yScale(energy_regional_sum),
       width: "5",
-      fill: energyHighlight.includes('wind') ? "blue" : "black"
+      fill: energyHighlight.includes('wind') ? "red" : energyHighlight != '' ? 'black' : "#add8e6"
     });
   }), bins[4].map(function (energy_regional_sum, i) {
     return /*#__PURE__*/_react.default.createElement("rect", {
@@ -100178,7 +100178,7 @@ var RegionGeneration = function RegionGeneration(_ref) {
       y: size - margin - yScale(energy_regional_sum),
       height: yScale(energy_regional_sum),
       width: "5",
-      fill: energyHighlight.includes('petroleum') ? "blue" : "black"
+      fill: energyHighlight.includes('petroleum') ? "red" : energyHighlight != '' ? 'black' : "#785027"
     });
   }), bins[5].map(function (energy_regional_sum, i) {
     return /*#__PURE__*/_react.default.createElement("rect", {
@@ -100186,7 +100186,7 @@ var RegionGeneration = function RegionGeneration(_ref) {
       y: size - margin - yScale(energy_regional_sum),
       height: yScale(energy_regional_sum),
       width: "5",
-      fill: energyHighlight.includes('coal') ? "blue" : "black"
+      fill: energyHighlight.includes('coal') ? "red" : energyHighlight != '' ? 'black' : "#000000"
     });
   }), bins[6].map(function (energy_regional_sum, i) {
     return /*#__PURE__*/_react.default.createElement("rect", {
@@ -100194,7 +100194,7 @@ var RegionGeneration = function RegionGeneration(_ref) {
       y: size - margin - yScale(energy_regional_sum),
       height: yScale(energy_regional_sum),
       width: "5",
-      fill: energyHighlight.includes('other') ? "blue" : "black"
+      fill: energyHighlight.includes('other') ? "red" : energyHighlight != '' ? 'black' : "#274f78"
     });
   }));
 };
@@ -113820,7 +113820,81 @@ var A2 = function A2() {
     margin: 20,
     yScale: energy_source_regional_yScale,
     bins: energy_source_regional_bins
-  }, _defineProperty(_React$createElement, "margin", margin), _defineProperty(_React$createElement, "size", size), _defineProperty(_React$createElement, "histogramLeftPadding", 40), _defineProperty(_React$createElement, "energyHighlight", ""), _React$createElement))), /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("p", {
+  }, _defineProperty(_React$createElement, "margin", margin), _defineProperty(_React$createElement, "size", size), _defineProperty(_React$createElement, "histogramLeftPadding", 40), _defineProperty(_React$createElement, "energyHighlight", ""), _React$createElement)), /*#__PURE__*/_react.default.createElement("ul", {
+    style: {
+      textAlign: 'left'
+    }
+  }, /*#__PURE__*/_react.default.createElement("li", {
+    className: "d-flex flex-row"
+  }, /*#__PURE__*/_react.default.createElement("span", {
+    style: {
+      display: 'block',
+      'background-color': "#e6add8",
+      width: '10px',
+      height: '10px',
+      margin: '1vh'
+    }
+  }), " Solar"), /*#__PURE__*/_react.default.createElement("li", {
+    className: "d-flex flex-row"
+  }, /*#__PURE__*/_react.default.createElement("span", {
+    style: {
+      display: 'block',
+      'background-color': "#72bcd4",
+      width: '10px',
+      height: '10px',
+      margin: '1vh'
+    }
+  }), " Hydro"), /*#__PURE__*/_react.default.createElement("li", {
+    className: "d-flex flex-row"
+  }, /*#__PURE__*/_react.default.createElement("span", {
+    style: {
+      display: 'block',
+      'background-color': "#e6bbad",
+      width: '10px',
+      height: '10px',
+      margin: '1vh'
+    }
+  }), " Nuclear"), /*#__PURE__*/_react.default.createElement("li", {
+    className: "d-flex flex-row"
+  }, /*#__PURE__*/_react.default.createElement("span", {
+    style: {
+      display: 'block',
+      'background-color': "#add8e6",
+      width: '10px',
+      height: '10px',
+      margin: '1vh'
+    }
+  }), " Wind"), /*#__PURE__*/_react.default.createElement("li", {
+    className: "d-flex flex-row"
+  }, /*#__PURE__*/_react.default.createElement("span", {
+    style: {
+      display: 'block',
+      'background-color': "#785027",
+      width: '10px',
+      height: '10px',
+      margin: '1vh'
+    }
+  }), " Petroleum"), /*#__PURE__*/_react.default.createElement("li", {
+    className: "d-flex flex-row"
+  }, /*#__PURE__*/_react.default.createElement("span", {
+    style: {
+      display: 'block',
+      'background-color': "#000000",
+      width: '10px',
+      height: '10px',
+      margin: '1vh'
+    }
+  }), " Coal"), /*#__PURE__*/_react.default.createElement("li", {
+    className: "d-flex flex-row"
+  }, /*#__PURE__*/_react.default.createElement("span", {
+    style: {
+      display: 'block',
+      'background-color': "#274f78",
+      width: '10px',
+      height: '10px',
+      margin: '1vh'
+    }
+  }), " Other"))), /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("p", {
     style: {
       width: "40vw"
     }
@@ -114054,7 +114128,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "62619" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "49459" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
