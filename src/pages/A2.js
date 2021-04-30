@@ -201,7 +201,58 @@ Since this dataset is extremely large in size, I opted to focus on a single year
 			<div>
 				<p style={{width: "40vw"}}>Figure 3.1: This chart displays the energy generated per region per energy source in order to compare how different regions differ in the ways they generate energy</p>
 				<RegionGeneration margin={20} yScale={energy_source_regional_yScale} bins={energy_source_regional_bins} margin={margin} size={size} histogramLeftPadding={40} energyHighlight=""/>
-			</div>
+				<ul style={{textAlign: 'left'}}>
+					<li className="d-flex flex-row"><span style={{
+							display: 'block',
+							'background-color': "#e6add8",
+							width: '10px',
+							height: '10px',
+							margin: '1vh'
+						}}/> Solar</li>
+					<li className="d-flex flex-row"><span style={{
+							display: 'block',
+							'background-color': "#72bcd4",
+							width: '10px',
+							height: '10px',
+							margin: '1vh'
+						}}/> Hydro</li>
+					<li className="d-flex flex-row"><span style={{
+							display: 'block',
+							'background-color': "#e6bbad",
+							width: '10px',
+							height: '10px',
+							margin: '1vh'
+						}}/> Nuclear</li>
+					<li className="d-flex flex-row"><span style={{
+							display: 'block',
+							'background-color': "#add8e6",
+							width: '10px',
+							height: '10px',
+							margin: '1vh'
+						}}/> Wind</li>
+					<li className="d-flex flex-row"><span style={{
+							display: 'block',
+							'background-color': "#785027",
+							width: '10px',
+							height: '10px',
+							margin: '1vh'
+						}}/> Petroleum</li>
+					<li className="d-flex flex-row"><span style={{
+							display: 'block',
+							'background-color': "#000000",
+							width: '10px',
+							height: '10px',
+							margin: '1vh'
+						}}/> Coal</li>
+					<li className="d-flex flex-row"><span style={{
+							display: 'block',
+							'background-color': "#274f78",
+							width: '10px',
+							height: '10px',
+							margin: '1vh'
+						}}/> Other</li>
+				</ul>
+		  </div>
 			<div>
 				<p style={{width: "40vw"}}>Figure 3.2: This chart highlights Solar, Hydro, and Petroleum energy sources</p>
 				<RegionGeneration margin={20} yScale={energy_source_regional_yScale} bins={energy_source_regional_bins} margin={margin} size={size} histogramLeftPadding={40} energyHighlight="solar hydro petroleum"/>

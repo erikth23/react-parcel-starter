@@ -60,7 +60,7 @@ const RegionGeneration = ({yScale, bins, size, histogramLeftPadding, margin, ene
               y={size - margin - yScale(energy_regional_sum)}
               height={yScale(energy_regional_sum)}
               width="5"
-              fill={energyHighlight.includes('solar') ? "blue" : "black"}/>
+              fill={energyHighlight.includes('solar') ? "red" : energyHighlight != '' ? 'black' : "#e6add8"}/>
           )
         })
       }
@@ -72,7 +72,7 @@ const RegionGeneration = ({yScale, bins, size, histogramLeftPadding, margin, ene
               y={size - margin - yScale(energy_regional_sum)}
               height={yScale(energy_regional_sum)}
               width="5"
-              fill={energyHighlight.includes('hydro') ? "blue" : "black"}/>
+              fill={energyHighlight.includes('hydro') ? "red" : energyHighlight != '' ? 'black' : "#72bcd4"}/>
           )
         })
       }
@@ -84,7 +84,7 @@ const RegionGeneration = ({yScale, bins, size, histogramLeftPadding, margin, ene
               y={size - margin - yScale(energy_regional_sum)}
               height={yScale(energy_regional_sum)}
               width="5"
-              fill={energyHighlight.includes('nuclear') ? "blue" : "black"}/>
+              fill={energyHighlight.includes('nuclear') ? "red" : energyHighlight != '' ? 'black' : "#e6bbad"}/>
           )
         })
       }
@@ -96,7 +96,7 @@ const RegionGeneration = ({yScale, bins, size, histogramLeftPadding, margin, ene
               y={size - margin - yScale(energy_regional_sum)}
               height={yScale(energy_regional_sum)}
               width="5"
-              fill={energyHighlight.includes('wind') ? "blue" : "black"}/>
+              fill={energyHighlight.includes('wind') ? "red" : energyHighlight != '' ? 'black' : "#add8e6"}/>
           )
         })
       }
@@ -108,7 +108,7 @@ const RegionGeneration = ({yScale, bins, size, histogramLeftPadding, margin, ene
               y={size - margin - yScale(energy_regional_sum)}
               height={yScale(energy_regional_sum)}
               width="5"
-              fill={energyHighlight.includes('petroleum') ? "blue" : "black"}/>
+              fill={energyHighlight.includes('petroleum') ? "red" : energyHighlight != '' ? 'black' : "#785027"}/>
           )
         })
       }
@@ -120,7 +120,7 @@ const RegionGeneration = ({yScale, bins, size, histogramLeftPadding, margin, ene
               y={size - margin - yScale(energy_regional_sum)}
               height={yScale(energy_regional_sum)}
               width="5"
-              fill={energyHighlight.includes('coal') ? "blue" : "black"}/>
+              fill={energyHighlight.includes('coal') ? "red" : energyHighlight != '' ? 'black' : "#000000"}/>
           )
         })
       }
@@ -132,7 +132,7 @@ const RegionGeneration = ({yScale, bins, size, histogramLeftPadding, margin, ene
               y={size - margin - yScale(energy_regional_sum)}
               height={yScale(energy_regional_sum)}
               width="5"
-              fill={energyHighlight.includes('other') ? "blue" : "black"}/>
+              fill={energyHighlight.includes('other') ? "red" : energyHighlight != '' ? 'black' : "#274f78"}/>
           )
         })
       }
