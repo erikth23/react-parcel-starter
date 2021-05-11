@@ -99597,7 +99597,7 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.default = void 0;
 
-var _react = _interopRequireDefault(require("react"));
+var _react = _interopRequireWildcard(require("react"));
 
 var _useFetch3 = require("../hooks/useFetch");
 
@@ -99607,7 +99607,9 @@ var _d3Array = require("d3-array");
 
 var _vega = require("vega");
 
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+function _getRequireWildcardCache() { if (typeof WeakMap !== "function") return null; var cache = new WeakMap(); _getRequireWildcardCache = function () { return cache; }; return cache; }
+
+function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } if (obj === null || typeof obj !== "object" && typeof obj !== "function") { return { default: obj }; } var cache = _getRequireWildcardCache(); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj.default = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
 
 function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
 
@@ -99623,6 +99625,11 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 // https://observablehq.com/@jermspeaks/async-await
 var Class = function Class() {
+  var _useState = (0, _react.useState)(""),
+      _useState2 = _slicedToArray(_useState, 2),
+      station = _useState2[0],
+      setStation = _useState2[1];
+
   var _useFetch = (0, _useFetch3.useFetch)("https://raw.githubusercontent.com/colinmegill/react-parcel-starter/main/weather.csv"),
       _useFetch2 = _slicedToArray(_useFetch, 2),
       data = _useFetch2[0],
@@ -99644,9 +99651,6 @@ var Class = function Class() {
     return +d.TMAX;
   }));
 
-  console.log(tmaxBins.map(function (bin, i) {
-    console.log(i, bin.x0, bin.x1, bin);
-  }));
   var histogramLeftPadding = 20;
   /*
     binning https://observablehq.com/@d3/d3-bin
@@ -99662,7 +99666,55 @@ var Class = function Class() {
   {
     /* <rect x={index * 11} y={size} width="10" height={bin.length} /> */
   }
-  return /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("h1", null, "Exploratory Data Analysis, Assignment 2, INFO 474 SP 2021"), /*#__PURE__*/_react.default.createElement("p", null, loading && "Loading data!"), /*#__PURE__*/_react.default.createElement("h3", null, " Binning "), /*#__PURE__*/_react.default.createElement("svg", {
+  return /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("h1", null, "Exploratory Data Analysis, Assignment 2, INFO 474 SP 2021"), /*#__PURE__*/_react.default.createElement("p", null, loading && "Loading data!"), /*#__PURE__*/_react.default.createElement("h3", null, "Barcode plot TMAX at Kalispell Glacier (sounds cold, expect it to be lower than average)"), /*#__PURE__*/_react.default.createElement("p", null, "Clicked on ", station, "!"), /*#__PURE__*/_react.default.createElement("svg", {
+    width: size,
+    height: size,
+    style: {
+      border: "1px solid black"
+    }
+  }, /*#__PURE__*/_react.default.createElement("text", {
+    x: size / 2 - 12,
+    textAnchor: "end",
+    y: size - margin + axisTextAlignmentFactor,
+    style: {
+      fontSize: 10,
+      fontFamily: "Gill Sans, sans serif"
+    }
+  }, "0"), /*#__PURE__*/_react.default.createElement("text", {
+    x: size / 2 - 12,
+    textAnchor: "end",
+    y: size - margin - 100 + axisTextAlignmentFactor,
+    style: {
+      fontSize: 10,
+      fontFamily: "Gill Sans, sans serif"
+    }
+  }, "100"), /*#__PURE__*/_react.default.createElement("line", {
+    x1: size / 2 - 10,
+    y1: size - margin - 100,
+    x2: size / 2 - 5,
+    y2: size - margin - 100,
+    stroke: "black"
+  }), /*#__PURE__*/_react.default.createElement("line", {
+    x1: size / 2 - 10,
+    y1: size - margin,
+    x2: size / 2 - 5,
+    y2: size - margin,
+    stroke: "black"
+  }), data.slice(0, 1000).map(function (measurement, index) {
+    var highlight = measurement.station == station;
+    return /*#__PURE__*/_react.default.createElement("line", {
+      key: index,
+      onClick: function onClick() {
+        return setStation(measurement.station);
+      },
+      x1: size / 2,
+      y1: size - margin - measurement.TMAX,
+      x2: size / 2 + 20,
+      y2: size - margin - measurement.TMAX,
+      stroke: highlight ? "red" : "steelblue",
+      strokeOpacity: highlight ? 1 : 0.1
+    });
+  })), /*#__PURE__*/_react.default.createElement("h3", null, " Binning "), /*#__PURE__*/_react.default.createElement("svg", {
     width: size,
     height: size,
     style: {
@@ -99736,51 +99788,6 @@ var Class = function Class() {
       fill: "none",
       stroke: highlight ? "red" : "steelblue",
       strokeOpacity: "0.2"
-    });
-  })), /*#__PURE__*/_react.default.createElement("h3", null, "Barcode plot TMAX at Kalispell Glacier (sounds cold, expect it to be lower than average)"), /*#__PURE__*/_react.default.createElement("svg", {
-    width: size,
-    height: size,
-    style: {
-      border: "1px solid black"
-    }
-  }, /*#__PURE__*/_react.default.createElement("text", {
-    x: size / 2 - 12,
-    textAnchor: "end",
-    y: size - margin + axisTextAlignmentFactor,
-    style: {
-      fontSize: 10,
-      fontFamily: "Gill Sans, sans serif"
-    }
-  }, "0"), /*#__PURE__*/_react.default.createElement("text", {
-    x: size / 2 - 12,
-    textAnchor: "end",
-    y: size - margin - 100 + axisTextAlignmentFactor,
-    style: {
-      fontSize: 10,
-      fontFamily: "Gill Sans, sans serif"
-    }
-  }, "100"), /*#__PURE__*/_react.default.createElement("line", {
-    x1: size / 2 - 10,
-    y1: size - margin - 100,
-    x2: size / 2 - 5,
-    y2: size - margin - 100,
-    stroke: "black"
-  }), /*#__PURE__*/_react.default.createElement("line", {
-    x1: size / 2 - 10,
-    y1: size - margin,
-    x2: size / 2 - 5,
-    y2: size - margin,
-    stroke: "black"
-  }), data.slice(0, 1000).map(function (measurement, index) {
-    var highlight = measurement.station === "KALISPELL GLACIER AP";
-    return /*#__PURE__*/_react.default.createElement("line", {
-      key: index,
-      x1: size / 2,
-      y1: size - margin - measurement.TMAX,
-      x2: size / 2 + 20,
-      y2: size - margin - measurement.TMAX,
-      stroke: highlight ? "red" : "steelblue",
-      strokeOpacity: highlight ? 1 : 0.1
     });
   })), /*#__PURE__*/_react.default.createElement("h3", null, "TMAX at Kalispell Glacier (sounds cold, expect it to be lower than average)"), /*#__PURE__*/_react.default.createElement("svg", {
     width: size,
@@ -114067,7 +114074,9 @@ function _getRequireWildcardCache() { if (typeof WeakMap !== "function") return 
 function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } if (obj === null || typeof obj !== "object" && typeof obj !== "function") { return { default: obj }; } var cache = _getRequireWildcardCache(); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj.default = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
 
 var App = function App() {
-  return /*#__PURE__*/_react.default.createElement(_reactRouterDom.BrowserRouter, null, /*#__PURE__*/_react.default.createElement(_navbar.default, null), /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement(_reactRouterDom.Switch, null, /*#__PURE__*/_react.default.createElement(_reactRouterDom.Route, {
+  return /*#__PURE__*/_react.default.createElement(_reactRouterDom.BrowserRouter, {
+    basename: "/react-parcel-starter"
+  }, /*#__PURE__*/_react.default.createElement(_navbar.default, null), /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement(_reactRouterDom.Switch, null, /*#__PURE__*/_react.default.createElement(_reactRouterDom.Route, {
     path: "/home",
     component: _Home.default
   }), /*#__PURE__*/_react.default.createElement(_reactRouterDom.Route, {
@@ -114128,7 +114137,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "49459" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "60011" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
