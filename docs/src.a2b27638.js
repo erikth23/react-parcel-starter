@@ -33683,7 +33683,8 @@ function _getRequireWildcardCache() { if (typeof WeakMap !== "function") return 
 
 function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } if (obj === null || typeof obj !== "object" && typeof obj !== "function") { return { default: obj }; } var cache = _getRequireWildcardCache(); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj.default = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
 
-var Navbar = function Navbar() {
+var Navbar = function Navbar(_ref) {
+  var match = _ref.match;
   var location = (0, _reactRouterDom.useLocation)();
   return /*#__PURE__*/_react.default.createElement("div", {
     className: "d-flex justify-content-start pl-5 mt-1",
@@ -33699,16 +33700,16 @@ var Navbar = function Navbar() {
       'margin-left': '10%'
     }
   }, /*#__PURE__*/_react.default.createElement(_reactRouterDom.Link, {
-    className: "pr-3 pt-3 ".concat(location.pathname == '/' || location.pathname == '/home' ? "font-weight-bolder" : "text-black-50"),
+    className: "pr-3 pt-3 ".concat(location.pathname == '/' || location.pathname == "/home" ? "font-weight-bolder" : "text-black-50"),
     to: '/home'
   }, "Home"), /*#__PURE__*/_react.default.createElement(_reactRouterDom.Link, {
-    className: "pr-3 pt-3 ".concat(location.pathname == '/class' ? "font-weight-bolder" : "text-black-50"),
+    className: "pr-3 pt-3 ".concat(location.pathname == "/class" ? "font-weight-bolder" : "text-black-50"),
     to: '/class'
   }, "Class"), /*#__PURE__*/_react.default.createElement(_reactRouterDom.Link, {
-    className: "pr-3 pt-3 ".concat(location.pathname == '/a1' ? "font-weight-bolder" : "text-black-50"),
+    className: "pr-3 pt-3 ".concat(location.pathname == "/a1" ? "font-weight-bolder" : "text-black-50"),
     to: '/a1'
   }, "Assignment 1"), /*#__PURE__*/_react.default.createElement(_reactRouterDom.Link, {
-    className: "pr-3 pt-3 ".concat(location.pathname == '/a2' ? "font-weight-bolder" : "text-black-50"),
+    className: "pr-3 pt-3 ".concat(location.pathname == "/a2" ? "font-weight-bolder" : "text-black-50"),
     to: '/a2'
   }, "Assignment 2")));
 };
@@ -114137,7 +114138,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "60011" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "60390" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
