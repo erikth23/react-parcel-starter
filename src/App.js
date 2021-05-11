@@ -12,15 +12,15 @@ import 'bootstrap/dist/css/bootstrap.css';
 const App = () => {
 
   return (
-      <Router basename="/react-parcel-starter">
+      <Router >
         <Navbar />
         <div>
           <Switch>
-            <Route path='/home' component={Home}/>
-            <Route path='/class' component={Class}/>
-            <Route path='/a1' component={A1}/>
-            <Route path='/a2' component={A2}/>
-            <Route exact path='/' component={Home}/>
+            <Route path='/react-parcel-starter/home' component={Home}/>
+            <Route path='/react-parcel-starter/class' component={Class}/>
+            <Route path='/react-parcel-starter/a1' component={A1}/>
+            <Route path='/react-parcel-starter/a2' component={A2}/>
+            <Route exact path='/react-parcel-starter/' component={Home}/>
           </Switch>
         </div>
       </Router>
